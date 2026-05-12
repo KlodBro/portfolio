@@ -1,0 +1,256 @@
+/* сброс базовых стилей */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Links */
+
+a,
+a:link,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+
+aside,
+nav,
+footer,
+header,
+section,
+main {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul,
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input,
+textarea,
+button,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button,
+input[type="submit"] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+input[type="file"] {
+  max-width: 100%;
+}
+
+
+
+.record_form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wrapper {
+  width: 400px;
+  background: #ffecf2;
+  /* padding: 20px; */
+  border-radius: 15px;
+  text-align: center;
+  display: block;
+  position: relative;
+  top: 35px;
+}
+
+#container {
+  position: relative;
+}
+
+.container #wheel {
+  width: 400px;
+  height: 400px;
+}
+
+.pointer {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  width: 40px;
+  z-index: 10;
+}
+
+#spin-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 5px solid #ff94b3;
+
+  /* 🔥 основной цвет теперь доминирует */
+  background: radial-gradient(circle, #ffffff 0%, #f6bcd7 85%, #ff94b3 100%);
+  color: #ff94b3;
+  /* Текст кнопки ярко-розовый */
+  font-weight: 700;
+  font-family: Commissioner;
+  cursor: pointer;
+  box-shadow:
+    0 0 14px rgba(240, 144, 187, 0.7),
+    0 6px 18px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+#spin-btn:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow:
+    0 0 20px rgba(240, 144, 187, 0.9),
+    0 8px 22px rgba(0, 0, 0, 0.2);
+}
+
+#spin-btn:active {
+  transform: translate(-50%, -50%) scale(0.98);
+}
+
+#final-value {
+  color: #504b51;
+  /* Текст внизу - цвет #504b51 */
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+/* Контейнер для содержимого */
+.price-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.price_content_one {
+  margin-bottom: 0;
+}
+
+.price-content.open {
+  max-height: 1000px;
+  padding: 20px;
+}
+
+/* Список услуг */
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #504B51;
+}
+
+.service-item {
+  padding: 10px 5px;
+  border-bottom: 1px dashed #504B51;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: #f6bcd7; */
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+.service-item:last-child {
+  border-bottom: none;
+}
+
+.price {
+  font-weight: bold;
+}
+
+/* Вращение стрелки при открытии */
+.open .arrow {
+  transform: rotate(90deg);
+}
+
+.price-section {
+  max-width: 1440px;
+  /* или другой желаемый размер */
+  margin: 0 auto;
+  /* по центру */
+  background: #FFECF2;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+#status {
+  position: relative;
+  bottom: 0;
+}

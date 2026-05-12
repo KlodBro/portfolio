@@ -1,0 +1,368 @@
+.burger {
+    display: none;
+    width: 30px;
+    height: 30px;
+}
+
+.hide {
+    transform: translateX(205px);
+    transition: transform .5s linear;
+}
+
+@media  (max-width: 930px) {
+    body {
+        width: 100%;
+        height: auto;
+    }
+
+    .header {
+        width: 100dvw;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100vw;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0;
+        margin: 0 auto;
+    }
+
+    .header-top {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin: 0 auto 60px auto;
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    .logo img {
+        max-width: 120px;
+        height: auto;
+    }
+
+    .head-imgs a {
+        width: 30px;
+    }
+
+    .head-imgs {
+        gap: 20px;
+        margin: 0;
+    }
+
+    .header-top a .btn-request {
+        margin: 0;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+
+    .header-desc {
+        width: 100%;
+        padding: 0;
+    }
+
+    .header-btns {
+        gap: 40px;
+        flex-wrap: wrap;
+        display: inline-flex;
+        width: 110px;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: white;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 5px 10px;
+        position: fixed;
+        top: 30px;
+        left: -200px;
+        z-index: 1000000;
+        transition: transform .3s linear;
+    }
+
+    .burger {
+        display: block;
+        position: fixed;
+        top: 5px;
+        left: 5px;
+        z-index: 1000000;
+    }
+
+    .header-desc.fixed {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        /* ставим в центр */
+        transform: none;
+        /* корректируем смещение */
+        background: white;
+        border: none;
+        padding: 0;
+        border-radius: 15px;
+        box-shadow: none;
+    }
+
+    .header-img {
+        margin-top: -30px;
+        border-radius: 0;
+    }
+
+    .cont_pink {
+        top: 0;
+        padding: 0 0 20px 0;
+        height: auto;
+    }
+
+    .cont_pink h1 {
+        font-size: 24px;
+        margin-top: 20px;
+    }
+
+    .cont_pink h2 {
+        font-size: 20px;
+        padding: 0;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .mes_box {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .message-box {
+        width: 600px;
+    }
+
+    .services {
+        width: 100%;
+        gap: 0;
+    }
+
+    .services h1 {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .price-section {
+        width: 100%;
+    }
+
+    .white-box {
+        width: 100%;
+    }
+
+    .content-row {
+        flex-direction: column;
+        height: 460px;
+    }
+
+    .white-box-img {
+        width: auto;
+    }
+
+    .white-box-text {
+        margin-left: 20px;
+    }
+
+    .white-box-text h2 {
+        font-size: 24px;
+    }
+
+    .white-box-text .info {
+        column-count: 1;
+    }
+
+    .service-item span {
+        width: 300px;
+    }
+
+    .service-item .price {
+        text-align: end;
+    }
+
+    .gray-sections {
+        width: 100%;
+        padding: 30px 0 0 0;
+        gap: 0;
+        height: 950px;
+    }
+
+    .gray-sections h1 {
+        margin: 0 auto;
+    }
+
+    .scroll {
+        display: none;
+    }
+
+    .white-box-horizontal {
+        gap: 0;
+    }
+
+    .white-box-horizontal .white-box {
+        margin: 0 20px;
+    }
+
+    .white-box-text {
+        margin: 0;
+    }
+
+    main {
+        gap: 0;
+    }
+
+    .gray-sections h4 {
+        margin: 0 auto 220px auto;
+    }
+
+    .white-box-large {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .white-box-large img {
+        width: 90%;
+    }
+
+    .white-box-large .text-content {
+        width: 100%;
+        align-items: center;
+    }
+
+    .white-box-large .text-content .btn-signup {
+        margin: 0;
+    }
+
+    .white-box-large .text-content p {
+        font-size: 14px;
+    }
+
+    .white-box-large .text-content .btn-signup {
+        font-size: 18px;
+    }
+
+    .record-window {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        margin-top: -230px;
+    }
+
+    .record-title {
+        font-size: 28px;
+    }
+
+    .record_form {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        width: 100%;
+    }
+
+    .form {
+        width: 100%;
+        height: fit-content;
+    }
+
+    .form h3 {
+        margin: 20px 0 0 0;
+    }
+
+    .record-form {
+        margin: 0;
+        height: auto;
+        width: auto;
+    }
+
+    #container {
+        width: 300px;
+    }
+
+    #wheel {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .pointer {
+        right: -35%;
+    }
+
+    #spin-btn {
+        left: 67%;
+    }
+
+    .map-container {
+        width: 95%;
+        height: 400px;
+        margin-top: -30px;
+    }
+
+    .footer-info {
+        flex: 0;
+    }
+
+    .footer-nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .master {
+        height: auto;
+    }
+
+    .master .content-row {
+        width: 100%;
+        height: auto;
+    }
+
+    .whitebox-text {
+        width: 100%;
+        height: auto;
+    }
+
+    .whitebox-text h2 {
+        margin-left: 0;
+    }
+
+    .whitebox-text p {
+        width: 350px;
+        margin-left: 0;
+        padding: 0;
+    }
+
+    .whitebox-text h3 {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .btn-signup-1 {
+        margin: 50px auto 0 auto;
+        position: relative;
+        right: 0;
+        bottom: 20px;
+        font-size: 18px;
+    }
+
+    .whitebox-image {
+        width: 100%;
+    }
+}

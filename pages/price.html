@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <title>Цены</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            padding: 20px;
+        }
+h1 {
+    margin-left: 210px; /* или другой размер для смещения */
+    color: #504B51;
+    font-size: 32px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+        /* Обертка раздела */
+        .price-section {
+            max-width: 1440px; /* или другой желаемый размер */
+    margin: 0 auto;   /* по центру */
+            background: #FFECF2;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        /* Заголовок раздела */
+        .price-header {
+            padding: 20px;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fcc4d4;
+            transition: background-color 0.3s;
+            color: #504B51;
+        }
+
+        .price-header:hover {
+            background-color: #FF94B3;
+        }
+
+        /* Стрелка или плюсик для открытия */
+        .arrow {
+            transition: transform 0.3s;
+            font-size: 30px;
+            color: #ffffff; 
+        }
+
+        /* Вращение стрелки при открытии */
+        .open .arrow {
+            transform: rotate(90deg);
+        }
+
+        /* Контейнер для содержимого */
+        .price-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            padding: 0 20px;
+        }
+
+        .price-content.open {
+            max-height: 1000px;
+            padding: 20px;
+        }
+
+        /* Список услуг */
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #504B51;
+        }
+
+        .service-item {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .price {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body style="padding: 0;">
+
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">ГУДЛАК</div>
+                <button class="btn-request">Записаться</button>
+            </div>
+            <div class="header-row">
+                <div class="header-desc">
+                    <div class="header-btns">
+                        <a href="../index.html #cont_pink" class="btn">ГЛАВНАЯ</a>
+                        <a href="../index.html #service" class="btn">УСЛУГИ</a>
+                        <a href="../index.html #white-box-large" class="btn">О СТУДИИ</a>
+                        <a href="../index.html #gray-section" class="btn">МАСТЕРА</a>
+                        <a href="../index.html #map-container" class="btn">АДРЕС</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1>Цены</h1>
+
+    <!-- Маникюр -->
+    <div class="price-section">
+        <div class="price-header">
+            <span>Маникюр</span>
+            <span class="arrow">></span>
+        </div>
+        <div class="price-content">
+            <ul class="service-list">
+                <li class="service-item">
+                    <span>Маникюр+снятие+покрытие</span>
+                    <span class="price">2200 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Укрепление акриловой пудрой</span>
+                    <span class="price">300 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Френч</span>
+                    <span class="price">500 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Мужской маникюр</span>
+                    <span class="price">1400 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Наращивание ногтей</span>
+                    <span class="price">3500 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Коррекция нарощенных ногтей</span>
+                    <span class="price">3000 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Ламинирование ногтей/укрепление гелем</span>
+                    <span class="price">400 ₽</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Уходовый маникюр -->
+<div class="price-section">
+    <div class="price-header">
+        <span>Уходовый маникюр</span>
+        <span class="arrow">></span>
+    </div>
+    <div class="price-content">
+        <ul class="service-list">
+            <li class="service-item">
+                <span>IBX(восстановление ногтевой пластины)</span>
+                <span class="price">700 ₽</span>
+            </li>
+            <li class="service-item">
+                <span>Японский маникюр</span>
+                <span class="price">1800 ₽</span>
+            </li>
+            <li class="service-item">
+                <span>SPA для рук</span>
+                <span class="price">600 ₽</span>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!-- Педикюр -->
+    <div class="price-section">
+        <div class="price-header">
+            <span>Педикюр</span>
+            <span class="arrow">></span>
+        </div>
+        <div class="price-content">
+            <ul class="service-list">
+                <li class="service-item">
+                    <span>Снятие + пальчики + гель лак</span>
+                    <span class="price">2500 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Снятие + полный педикюр + гель лак</span>
+                    <span class="price">2800 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Мужской педикюр</span>
+                    <span class="price">2600 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>SPA педикюр + обработка стопы + гель лак + снятие</span>
+                    <span class="price">3000 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Мужской педикюр</span>
+                    <span class="price">2600 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Педикюр KART (полная обработка стопы без покрытия)</span>
+                    <span class="price">3200 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Педикюр KART (полная отработка стопы + покрытие гель лак)</span>
+                    <span class="price">4200 ₽</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Брови -->
+    <div class="price-section">
+        <div class="price-header">
+            <span>Брови</span>
+            <span class="arrow">></span>
+        </div>
+        <div class="price-content">
+            <ul class="service-list">
+                <li class="service-item">
+                    <span>Архитектура+окрашивание бровей</span>
+                    <span class="price">1500 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Коррекция бровей</span>
+                    <span class="price">600 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Долговременная укладка с окрашиванием</span>
+                    <span class="price">2300 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Долговременная укладка без окрашивания</span>
+                    <span class="price">1800 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Прореживание бровей</span>
+                    <span class="price">700 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Уход для бровей</span>
+                    <span class="price">500 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Мужское оформление бровей</span>
+                    <span class="price">1100 ₽</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Ресницы -->
+    <div class="price-section">
+        <div class="price-header">
+            <span>Ресницы</span>
+            <span class="arrow">></span>
+        </div>
+        <div class="price-content">
+            <ul class="service-list">
+                <li class="service-item">
+                    <span>Ламинирование ресниц</span>
+                    <span class="price">2300 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Окрашивание ресниц</span>
+                    <span class="price">500 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Наращивание</span>
+                    <span class="price">2000 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Мокрый эффект</span>
+                    <span class="price">2600 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Уголки</span>
+                    <span class="price">2000 ₽</span>
+                </li>
+                <li class="service-item">
+                    <span>Лучи</span>
+                    <span class="price">300 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Снятие без дальнейшего наращивания</span>
+                    <span class="price">500 ₽</span>
+                </li>
+                </li>
+                <li class="service-item">
+                    <span>Снятие работы другого мастера</span>
+                    <span class="price">300 ₽</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="height: 50px;"></div>
+    </header>
+     <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-info">
+                <h3>Студия красоты "Гудлак"</h3>
+                <p><strong>Адрес:</strong> 400066, г. Волгоград, ул. Мира,
+                    д.
+                    20</p>
+                <p><strong>Режим работы:</strong> Пн–Вс: 10:00–22:00</p>
+                <p><strong>Телефон:</strong> <a href="tel:+79965098989">+7
+                        (996)
+                        509-89-89</a></p>
+
+            </div>
+
+            <nav class="footer-nav">
+                <a href="#cont_pink" class="footer-link">ГЛАВНАЯ</a>
+                <a href="#service" class="footer-link">УСЛУГИ</a>
+                <a href="#white-box-large" class="footer-link">О СТУДИИ</a>
+                <a href="#gray-section" class="footer-link">МАСТЕРА</a>
+                <a href="#metrolog" class="footer-link">АДРЕС</a>
+            </nav>
+
+            <div class="footer-social">
+                <a href="#!" aria-label="MAX" class="social-link">MAX</a>
+                <a href="#!" aria-label="VK" class="social-link">VK</a>
+            </div>
+        </div>
+
+        <div class="footer-copy">
+            <p>© 2024 Студия красоты "Гудлак". Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Обработчик для всех заголовков
+        document.querySelectorAll('.price-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const arrow = header.querySelector('.arrow');
+                const isOpen = content.classList.contains('open');
+
+                // Открываем или закрываем текущий раздел
+                if (isOpen) {
+                    // если открыт, закрываем
+                    content.classList.remove('open');
+                    header.classList.remove('open');
+                    arrow.textContent = '>';
+                } else {
+                    // если закрыт, открываем
+                    content.classList.add('open');
+                    header.classList.add('open');
+                    arrow.textContent = '>';
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>

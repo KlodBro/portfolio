@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wheel Casino</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        .wrapper {
+            width: 400px;
+            background: #ffecf2;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        canvas {
+            width: 400px;
+            height: 400px;
+        }
+
+        .pointer {
+            position: absolute;
+            top: 50%;
+            right: -20px;
+            transform: translateY(-50%);
+            width: 40px;
+            z-index: 10;
+        }
+
+        #spin-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            border: 5px solid #ff94b3;
+
+            /* 🔥 основной цвет теперь доминирует */
+            background: radial-gradient(circle, #ffffff 0%, #f6bcd7 85%, #ff94b3 100%);
+            color: #ff94b3;
+            /* Текст кнопки ярко-розовый */
+            font-weight: 700;
+            font-family: Commissioner;
+            cursor: pointer;
+            box-shadow: 0 0 14px rgba(240, 144, 187, 0.7), 0 6px 18px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        #spin-btn:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 0 20px rgba(240, 144, 187, 0.9), 0 8px 22px rgba(0, 0, 0, 0.2);
+        }
+
+        #spin-btn:active {
+            transform: translate(-50%, -50%) scale(0.98);
+        }
+
+        #final-value {
+            color: #504b51;
+            /* Текст внизу - цвет #504b51 */
+            font-size: 18px;
+            font-weight: 500;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="container">
+            <canvas id="wheel"></canvas>
+            <img src="../img/Rectangle.svg" class="pointer" />
+            <button id="spin-btn">Старт</button>
+        </div>
+
+        <div id="final-value">Нажмите старт</div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById("wheel");
+        const ctx = canvas.getContext("2d");
+        const btn = document.getElementById("spin-btn");
+
+        const labels = [
+            "-10% на процедуру",
+            "-15% на процедуру",
+            "-20% на процедуру",
+            "SPA для рук",
+            "-25% на процедуру",
+            "Секретный приз",
+            "Маска для лица",
+            "Сертификат на 500₽",
+            "Бесплатный дизайн",
+            "-5% на процедуру"
+        ];
+
+        const colors = [
+            "#ff94b3", "#fff", "#ff94b3", "#fff", "#ff94b3",
+            "#fff", "#ff94b3", "#fff", "#ff94b3", "#fff"
+        ];
+
+        const total = labels.length;
+
+        function fixCanvasResolution(canvas, ctx) {
+            const dpr = window.devicePixelRatio || 1;
+            const size = 400;
+
+            canvas.width = size * dpr;
+            canvas.height = size * dpr;
+
+            canvas.style.width = size + "px";
+            canvas.style.height = size + "px";
+
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        fixCanvasResolution(canvas, ctx);
+
+        function wrapText(ctx, text, maxWidth) {
+            const words = text.split(" ");
+            let lines = [];
+            let line = "";
+
+            for (let word of words) {
+                let testLine = line + word + " ";
+                if (ctx.measureText(testLine).width > maxWidth && line !== "") {
+                    lines.push(line);
+
+
+                    line = word + " ";
+                } else {
+                    line = testLine;
+                }
+            }
+
+            lines.push(line);
+            return lines;
+        }
+
+        function drawWheel(rotation = 0) {
+            const size = 400;
+            const center = size / 2;
+            const radius = size / 2;
+
+            ctx.clearRect(0, 0, size, size);
+
+            const step = (2 * Math.PI) / total;
+
+            for (let i = 0; i < total; i++) {
+                let start = i * step + rotation;
+                let end = start + step;
+
+                ctx.beginPath();
+                ctx.moveTo(center, center);
+                ctx.arc(center, center, radius, start, end);
+                ctx.fillStyle = colors[i];
+                ctx.fill();
+
+                ctx.save();
+                ctx.translate(center, center);
+                ctx.rotate(start + step / 2);
+
+                const maxWidth = radius - 60;
+                const lines = wrapText(ctx, labels[i], maxWidth);
+
+                ctx.textAlign = "center";
+                ctx.font = "600 14px Commissioner";
+
+                const textColor = colors[i] === "#ff94b3" ? "#fff" : "#ff94b3";
+                ctx.fillStyle = textColor;
+
+                const textRadius = radius - 85;
+                let y = -((lines.length - 1) * 10);
+
+                for (let line of lines) {
+                    ctx.fillText(line.trim(), textRadius, y);
+                    y += 20;
+                }
+
+                ctx.restore();
+            }
+        }
+
+        let rotation = 0;
+        let spinning = false;
+        let used = false;
+
+        function animate(target, index) {
+            const diff = target - rotation;
+
+            if (diff < 0.002) {
+                rotation = target % (2 * Math.PI);
+                drawWheel(rotation);
+
+                document.getElementById("final-value").innerText =
+                    "Ваш приз: " + labels[index];
+
+                spinning = false;
+                used = true;
+                return;
+            }
+
+            rotation += diff * 0.08;
+            drawWheel(rotation);
+
+            requestAnimationFrame(() => animate(target, index));
+        }
+
+        btn.onclick = () => {
+            if (used || spinning) return;
+
+            spinning = true;
+
+            const step = (2 * Math.PI) / total;
+            const index = Math.floor(Math.random() * total);
+            const sectorCenter = index * step + step / 2;
+
+            const spins = 10 * 2 * Math.PI;
+            const target = rotation + spins - sectorCenter;
+
+            animate(target, index);
+        };
+
+        drawWheel();
+
+    </script>
+
+</body>
+
+</html>
