@@ -75,6 +75,7 @@ body {
   color: #504b51;
   /* Цвет текста логотипа */
 }
+
 .logo img {
   height: 70px;
   display: block;
@@ -119,24 +120,26 @@ body {
 
 .head-imgs {
   display: flex;
-    align-items: center;
-    gap: 50px;
-    margin-left: auto;
-    margin-right: 50px;
- 
+  align-items: center;
+  gap: 50px;
+  margin-left: auto;
+  margin-right: 50px;
+
 
 }
 
 .head-img {
-width: 40px;
+  width: 40px;
   margin: 0;
   object-fit: cover;
 }
 
 .header-desc {
   position: relative;
-  margin: 0 auto; /* центрирование */
-  width: max-content; /* или фиксированная ширина, или 100% — зависит от твоего дизайна */
+  margin: 0 auto;
+  /* центрирование */
+  width: max-content;
+  /* или фиксированная ширина, или 100% — зависит от твоего дизайна */
   padding: 15px 30px;
   transition: all 0.2s ease;
   z-index: 1000;
@@ -145,8 +148,10 @@ width: 40px;
 .header-desc.fixed {
   position: fixed;
   top: 5px;
-  left: 50%; /* ставим в центр */
-  transform: translateX(-50%); /* корректируем смещение */
+  left: 50%;
+  /* ставим в центр */
+  transform: translateX(-50%);
+  /* корректируем смещение */
   background: white;
   border: 1px solid #ccc;
   padding: auto 50%;
@@ -429,7 +434,8 @@ main {
 .white-box-horizontal {
   display: flex;
   gap: 30px;
-  overflow-x: scroll; /* прокрутка по горизонтали */
+  overflow-x: scroll;
+  /* прокрутка по горизонтали */
   /* горизонтальная прокрутка, но без скроллбара */
   scroll-behavior: smooth;
   padding: 0 20px;
@@ -571,7 +577,7 @@ main {
   height: 640px;
   position: relative;
   top: -15px;
-   
+
 }
 
 .map-container iframe {
@@ -592,8 +598,9 @@ main {
   margin-bottom: 100px;
   scroll-margin-top: 150px;
 }
+
 .record-window h3 {
-text-align: left;
+  text-align: left;
   font-size: 18px;
   font-weight: 500;
   margin-top: 70px;
@@ -639,6 +646,7 @@ text-align: left;
     box-shadow 0.3s,
     border-color 0.3s;
 }
+
 /* При фокусе - меняется рамка на розовую */
 .record-form input:focus {
   outline: none;
@@ -766,4 +774,71 @@ text-align: left;
 
 .master {
   scroll-margin-top: 20vh;
+}
+
+
+.whitebox-image {
+  width: 350px;
+}
+
+.whitebox-text {
+  flex-grow: 1;
+  color: #504b51;
+}
+
+.whitebox-text h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  color: #504b51;
+  font-style: italic;
+  font-family: "Cormorant Garamond";
+}
+
+.whitebox-text p {
+  font-size: 18px;
+  list-style: disc;
+
+  width: 800px;
+  line-height: 150%;
+  text-align: justify;
+  margin-left: 40px;
+  padding-right: 40px;
+}
+
+.whitebox-text h3 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 80px;
+  margin-left: 40px;
+  color: #504b51;
+  font-style: italic;
+  font-family: "Cormorant Garamond";
+}
+
+.btn-signup-1 {
+  position: absolute;
+  /* Для позиционирования внутри блока */
+  bottom: 40px;
+  /* Расположить внизу */
+  right: 60px;
+  background-color: #ff94b3;
+  color: white;
+  border-radius: 30px;
+  padding: 10px 25px;
+  /* внутренние отступы */
+  transition: background-color 0.3s ease;
+  /* плавное изменение цвета */
+  user-select: none;
+  /* запрет выделения текста */
+  font-size: 22px;
+  /* размер шрифта */
+  margin-top: 100px;
+  margin-left: 640px;
+}
+
+.btn-signup-1:hover {
+  background-color: #f082a3;
+  /* более тёмный розовый при наведении */
 }
