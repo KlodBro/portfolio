@@ -124,6 +124,8 @@ document.querySelector(".record-form").addEventListener("submit", function (e) {
   .catch((err) => {
       status.textContent = "Ошибка отправки: " + err.text;
       status.style.color = "red";
+
+    console.log(name);
   });
 });
 
