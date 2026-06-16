@@ -97,23 +97,19 @@ document.querySelector(".record-form").addEventListener("submit", function (e) {
 
   const status = document.getElementById("status");
 
-  emailjs.send("service_7mutvum", "template_xy3x7jl", {
+  return emailjs.send("service_7mutvum", "template_xy3x7jl", {
     name: document.getElementById("name").value,
     surname: document.getElementById("surname").value,
     phone: document.getElementById("phone").value,
     discount: document.getElementById("discount").value
-
   })
   .then(() => {
-
       status.textContent = "Данные успешно отправлены!";
       status.style.color = "green";
 
       document.querySelector(".record-form").reset();
       document.getElementById("discount").value = "";
       document.getElementById("final-value").textContent = "Нажмите старт";
-
-      // ❗ УДАЛЕНО: document.getElementById('status').reset()
 
       rotation = 0;
       used = false;
@@ -123,11 +119,10 @@ document.querySelector(".record-form").addEventListener("submit", function (e) {
       btn.disabled = false;
   })
   .catch((err) => {
-      status.textContent = "Ошибка отправки: " + err.text;
+      status.textContent = "Ошибка отправки: " + JSON.stringify(err);
       status.style.color = "red";
   });
 });
-
 
 
 document.querySelector('.burger').addEventListener('click', function() {
