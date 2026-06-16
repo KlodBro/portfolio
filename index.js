@@ -103,41 +103,30 @@ document.querySelector(".record-form").addEventListener("submit", function (e) {
     phone: document.getElementById("phone").value,
     discount: document.getElementById("discount").value
   })
+  .then(() => {
 
-
-    .then(() => {
-      // Сообщение об успехе
       status.textContent = "Данные успешно отправлены!";
       status.style.color = "green";
 
-      // Сброс формы
       document.querySelector(".record-form").reset();
-
-      // Сброс скидки
       document.getElementById("discount").value = "";
-
-      // Сброс текста результата
       document.getElementById("final-value").textContent = "Нажмите старт";
 
-      document.getElementById('status').reset()
+      // ❗ УДАЛЕНО: document.getElementById('status').reset()
 
-      // Сброс состояния колеса
       rotation = 0;
       used = false;
       spinning = false;
       drawWheel(rotation);
 
-      // Включаем кнопку снова
       btn.disabled = false;
-
-    })
-    .catch((err) => {
+  })
+  .catch((err) => {
       status.textContent = "Ошибка отправки: " + err.text;
       status.style.color = "red";
-    });
-  console.log(document.getElementById("discount").value);
-
+  });
 });
+
 
 
 document.querySelector('.burger').addEventListener('click', function() {
