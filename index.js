@@ -199,3 +199,39 @@ document.querySelector('.burger').addEventListener('click', function() {
     document.querySelector('..header-btns').style.display = 'none'
   }
 })
+
+document.querySelector(".record-form").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const payload = {
+    name: document.getElementById("name").value,
+    surname: document.getElementById("surname").value,
+    phone: document.getElementById("phone").value,
+    discount: document.getElementById("discount").value,
+    time: new Date().toISOString()
+  };
+
+  return emailjs.send("service_7mutvum", "template_xy3x7jl", payload)
+    .then(() => {
+
+      showToast("Данные успешно отправлены!", "green");
+
+      document.querySelector(".record-form").reset();
+      document.getElementById("discount").value = "";
+      document.getElementById("final-value").textContent = "Нажмите старт";
+
+      rotation = 0;
+      used = false;
+      spinning = false;
+      drawWheel(rotation);
+
+      btn.disabled = false;
+    })
+    .catch(() => {
+
+      showToast("Связь потеряна. Данные сохранены!", "orange");
+
+      saveToFallbackQueue(payload);
+    });
+});
+
