@@ -103,7 +103,6 @@ document.querySelector(".record-form").addEventListener("submit", function (e) {
     phone: document.getElementById("phone").value,
     discount: document.getElementById("discount").value
 
-    console.log(name);
   })
   .then(() => {
 
