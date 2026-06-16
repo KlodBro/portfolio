@@ -102,6 +102,8 @@ document.querySelector(".record-form").addEventListener("submit", function (e) {
     surname: document.getElementById("surname").value,
     phone: document.getElementById("phone").value,
     discount: document.getElementById("discount").value
+
+    console.log(name);
   })
   .then(() => {
 
@@ -124,8 +126,6 @@ document.querySelector(".record-form").addEventListener("submit", function (e) {
   .catch((err) => {
       status.textContent = "Ошибка отправки: " + err.text;
       status.style.color = "red";
-
-    console.log(name);
   });
 });
 
